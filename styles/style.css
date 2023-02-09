@@ -1,3 +1,7 @@
 #searchfooter{
     width: 95%;
 }
+
+.form-control{
+    border: none;
+}
