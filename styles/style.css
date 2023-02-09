@@ -5,3 +5,20 @@
 .form-control{
     border: none;
 }
+
+#loginbutton {
+    margin-left: 20%;
+}
+
+.display-4 {
+    padding: 10px;
+}
+
+.lead {
+    padding: 7px 10px;
+}
+
+#inspire-message {
+    padding: 7px;
+    text-align: center;
+}
