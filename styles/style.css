@@ -22,3 +22,9 @@
     padding: 7px;
     text-align: center;
 }
+
+/* map_css */
+.bi-exclamation-triangle-fill :hover{
+    fill: #b51818;
+}
+/* end_map_css */
