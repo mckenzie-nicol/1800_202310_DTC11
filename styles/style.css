@@ -1,8 +1,8 @@
-#searchfooter{
+#searchfooter {
     width: 95%;
 }
 
-.form-control{
+.form-control {
     border: none;
 }
 
@@ -24,7 +24,12 @@
 }
 
 /* map_css */
-.bi-exclamation-triangle-fill :hover{
+.bi-exclamation-triangle-fill :hover {
     fill: #b51818;
 }
+
+.bi-geo-alt-fill :hover {
+    fill: #2e5adf;
+}
+
 /* end_map_css */
