@@ -1,0 +1,20 @@
+.popupbtn {
+    width: 500px;
+    height: 125px;
+}
+
+.title-centered {
+    width: 50%;
+    justify-content: center;
+    margin-left: 28%;
+}
+
+.accessbtn {
+    width: 210px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.modal-footer {
+    justify-content: space-between;
+}
