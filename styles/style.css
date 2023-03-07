@@ -32,4 +32,11 @@
     fill: #2e5adf;
 }
 
+.addBtn {
+    transition: transform .2s;
+}
+
+.addBtn :hover {
+    transform: scale(1.4);
+}
 /* end_map_css */
