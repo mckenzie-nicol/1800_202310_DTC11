@@ -9,6 +9,10 @@ var uiConfig = {
                 db.collection("users").doc(user.uid).set({
                     name: user.displayName,
                     email: user.email,
+                    home_lat: "",
+                    home_lng: "",
+                    favourite: [], 
+                    previous_reports: [],
                 }).then(function () {
                     console.log("New user added to firestore");
                     window.location.assign("main.html");
