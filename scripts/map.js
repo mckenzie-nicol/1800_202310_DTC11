@@ -115,8 +115,10 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 // warnings
 var warningIcon = L.icon({
-    iconUrl: 'warning.png',
-    shadowUrl: 'leaf-shadow.png',
+    // reference html file for icon image
+    iconUrl: 'images/drink3.png',
+    // iconUrl: '.text/map_warning.html',
+    shadowUrl: './images/drink1.png',
 
     iconSize: [38, 95], // size of the icon
     shadowSize: [50, 64], // size of the shadow
@@ -127,8 +129,30 @@ var warningIcon = L.icon({
 var warning = L.marker([51.5, -0.09], {icon: warningIcon}).addTo(map);
 warning.bindPopup("<b>Hello world!</b><br>I am a warning!.").openPopup();
 // home
-// var home = L.marker([50, -0.12]).addTo(map);
-// home.bindPopup("Home!").openPopup();
+// function getHomeCoordinates() {
+//     var user = firebase.auth().currentUser;
+//     var homeCoordinates = [];
+//     db.collection("users").doc(user.uid).get().then(function(doc) {
+//         console.log(home_lat);
+//         console.log(home_lng);
+//     });
+//     return homeCoordinates;
+// }
+// getHomeCoordinates();
+var homeIcon = L.icon({
+    // reference html file for icon image
+    iconUrl: 'images/drink3.png',
+    // iconUrl: '.text/map_warning.html',
+    shadowUrl: './images/drink1.png',
+
+    iconSize: [38, 95], // size of the icon
+    shadowSize: [50, 64], // size of the shadow
+    iconAnchor: [22, 94], // point of the icon which will correspond to marker's location
+    shadowAnchor: [4, 62],  // the same for the shadow
+    popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
+});
+var home = L.marker([50, -0.12], {icon: homeIcon}).addTo(map);
+home.bindPopup("Home!").openPopup();
 // user pins
 var popup = L.popup();
 
