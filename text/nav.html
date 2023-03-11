@@ -21,3 +21,48 @@
         </div>
     </div>
 </nav>
+
+<!-- Below is the modal code -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="title-centered">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Are you reporting a safe sidewalk or a
+                        harzad?
+                    </h1>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="harzard-buttons">
+                    <button type="button" class="popupbtn btn btn-light">
+                        <h1>Safe</h1>
+                    </button>
+                    <button type="button" class="popupbtn btn btn-light">
+                        <h1>Harzad</h1>
+                    </button>
+                </div>
+                <form>
+                    <div class="mb-3">
+
+                    </div>
+                    <div class="mb-3">
+                        <label for="message-text" class="col-form-label" id="text_input">Text Description</label>
+                        <textarea class="form-control" id="message-text"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="submissionbtn btn btn-secondary btn-lg "
+                    data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="submissionbtn btn btn-primary btn-lg" 
+                    id="submitbtn">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Above is modal -->
+
+
+<script src="/scripts/submission.js"></script>
