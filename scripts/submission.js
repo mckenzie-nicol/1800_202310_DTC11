@@ -27,7 +27,3 @@ $("#submitbtn").click(function () {
 
 
 })
-
-$("#submitbtn").click(function () {
-    console.log("test2")
-})
