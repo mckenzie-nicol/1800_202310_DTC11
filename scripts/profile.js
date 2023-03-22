@@ -53,7 +53,7 @@ populateUserInfo();
 
 function editUserInfo() {
     console.log('inside');
-    document.getElementById('personalInfoFields').disabled = false;
+    document.getElementById("personalInfoField").disabled = false;
 };
 
 function saveUserInfo() {
@@ -82,7 +82,10 @@ function saveUserInfo() {
         .then(() => {
             console.log("Document successfully updated!");
         })
-        document.getElementById('personalInfoFields').disabled = true;
+    document.getElementById("personalInfoField").disabled = true;
 }
 
+$(document).ready(function () {
+    $('#personalInfoField').prop('disabled', true);
+});
 
