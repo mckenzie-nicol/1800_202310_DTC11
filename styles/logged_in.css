@@ -1,0 +1,8 @@
+#logged_in {
+    background-color: lightblue;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    z-index: -1;
+    text-decoration: none;
+}
