@@ -1,18 +1,11 @@
-.harzard-buttons {
-    display: flex;
+.modal-header {
     justify-content: center;
-    gap: 10px
-}
-
-.popupbtn {
-    width: 500px;
-    height: 125px;
 }
 
 .title-centered {
-    width: 50%;
+    width: 70%;
     justify-content: center;
-    margin-left: 28%;
+    text-align: center;
 }
 
 .submissionbtn {
@@ -22,4 +15,12 @@
 
 .modal-footer {
     justify-content: space-between;
+}
+
+.center-modal {
+    margin-top: 0px;
+}
+
+.modal-dialog {
+    max-width: 550px;
 }
