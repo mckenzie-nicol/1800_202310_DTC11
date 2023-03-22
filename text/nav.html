@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="/styles/submission.css">
+<script src="/scripts/submission.js"></script>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-success">
     <div class="container-fluid">
@@ -27,7 +29,7 @@
 
 <!-- Below is the modal code -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-dialog modal-dialog-centered center-modal">
         <div class="modal-content">
             <div class="modal-header">
                 <div class="title-centered">
@@ -35,20 +37,14 @@
                         harzad?
                     </h1>
                 </div>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <div class="harzard-buttons">
-                    <button type="button" class="popupbtn btn btn-light">
-                        <h1>Safe</h1>
-                    </button>
-                    <button type="button" class="popupbtn btn btn-light">
-                        <h1>Harzad</h1>
-                    </button>
-                </div>
+                <img id="frame" src="" class="img-fluid" />
                 <form>
                     <div class="mb-3">
-
+                        <label for="formFile" class="form-label">Upload picture of hazard.</label>
+                        <input class="form-control" type="file" id="formFile" onchange="preview()"
+                            onclick="clearImage()">
                     </div>
                     <div class="mb-3">
                         <label for="message-text" class="col-form-label">Text Description</label>
@@ -58,7 +54,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="submissionbtn btn btn-secondary btn-lg" data-bs-dismiss="modal"
-                    data-bs-dismiss="modal">Cancel</button>
+                    data-bs-dismiss="modal" onclick="empty_all()">Cancel</button>
                 <button type="button" class="submissionbtn btn btn-primary btn-lg" data-bs-dismiss="modal"
                     id="submitbtn">Submit</button>
             </div>
@@ -68,5 +64,5 @@
 <!-- Above is modal -->
 
 
-<script src="/scripts/submission.js"></script>
 <script src="/scripts/logged_in.js"></script>
+<!-- Above is modal -->

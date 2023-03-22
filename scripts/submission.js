@@ -27,3 +27,18 @@ $("#submitbtn").click(function () {
 
 
 })
+
+function preview() {
+    frame.src = URL.createObjectURL(event.target.files[0]);
+}
+
+function clearImage() {
+    document.getElementById('formFile').value = null;
+    frame.src = "";
+}
+
+function empty_all() {
+    document.getElementById("text_input").value = "";
+    document.getElementById("formFile").value = "";
+    clearImage()
+}
