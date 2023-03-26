@@ -1,6 +1,25 @@
+var map = L.map('map').setView([51.505, -0.09], 13);
+// locate user functions
+function onLocationFound(e) {
+    var radius = e.accuracy / 10;
+    console.log(e.latlng);
+
+    L.marker(e.latlng).addTo(map)
+        .bindPopup("You are within " + radius + " meters from this point").openPopup();
+
+    L.circle(e.latlng, radius).addTo(map);
+}
+
+function onLocationError(e) {
+    alert(e.message);
+}
+
+map.on('locationfound', onLocationFound);
+map.on('locationerror', onLocationError);
+
+map.locate({ setView: true, maxZoom: 16 })
 // leaflet map
 // use setView to center on current user location
-var map = L.map('map').setView([51.505, -0.09], 13);
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
@@ -9,8 +28,8 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 function showMapWarnings() {
     db.collection("reports").doc(reports.uid).get().then(function (doc) {
         // for report in reports, get lat and lng:
-        
-        
+
+
         // console.log(doc.data().home_lat);
         // console.log(doc.data().home_lng);
         warning_lat = doc.data().report_lat
@@ -85,7 +104,7 @@ function onMapClick(e) {
     var user = firebase.auth().currentUser;
     popup
         .setLatLng(e.latlng)
-        .setContent("You clicked the map at " + e.latlng.toString())
+        .setContent("https://cdn.iconscout.com/icon/free/png-256/pin-locate-marker-location-navigation-16-28668.png"+ "You clicked the map at " + e.latlng.toString())
         .openOn(map);
     console.log(e.latlng);
     console.log(e.latlng["lat"]);
