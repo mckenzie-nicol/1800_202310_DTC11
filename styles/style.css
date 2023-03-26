@@ -25,7 +25,13 @@
 
 /* map_css */
 .bi-exclamation-triangle-fill :hover {
-    fill: #b51818;
+    fill: #7703e3;
+}
+.bi-house-door-fill{
+    fill: #0c6635;
+}
+.bi-house-door-fill :hover {
+    fill: #2e5adf;
 }
 
 .bi-geo-alt-fill :hover {
