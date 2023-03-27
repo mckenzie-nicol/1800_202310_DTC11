@@ -19,14 +19,13 @@ $("#submitbtn").click(function () {
                 uploadPic(doc.id);
                 saveReportIDforUser(doc.id, userID)
             })
+
         }
         else {
             console.log("No user is signed in");
             window.location.href = 'login.html'
         }
     })
-
-
 })
 
 var ImageFile;
