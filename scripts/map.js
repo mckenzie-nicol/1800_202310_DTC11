@@ -50,10 +50,10 @@ function showMapWarnings() {
                     shadowAnchor: [4, 62],  // the same for the shadow
                     popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
                 });
-                // var popup = L.popup()
-                //     .setContent('<img src="' + warning_image + '" width="200" height="200">')
+                var popup = L.popup()
+                    .setContent('<img src="' + warning_image + '" width="200" height="200">')
                 var warning = L.marker([warning_lat, warning_lng], { icon: warningIcon }).addTo(map);
-                warning.bindPopup().openPopup();
+                warning.bindPopup(popup).openPopup();
             });
 
         });
