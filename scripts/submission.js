@@ -1,6 +1,7 @@
 $("#submitbtn").click(function () {
     let Text_description = document.getElementById("text_input").value;
     console.log(Text_description)
+    console.log($("#formFile").value)
 
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
@@ -16,8 +17,10 @@ $("#submitbtn").click(function () {
             }).then(doc => {
                 console.log("Report document added!");
                 console.log(doc.id);
-                uploadPic(doc.id);
-                saveReportIDforUser(doc.id, userID)
+                saveReportIDforUser(doc.id, userID);
+                if (($("#formFile").value) != "") {
+                    uploadPic(doc.id)
+                }
             })
 
         }
@@ -32,6 +35,7 @@ var ImageFile;
 function preview() {
     ImageFile = event.target.files[0]
     frame.src = URL.createObjectURL(ImageFile);
+    console.log($("#formFile").value)
 }
 
 function uploadPic(ReportsDocID) {
