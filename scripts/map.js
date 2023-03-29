@@ -108,7 +108,6 @@ function showHomeCoordinates() {
         }
     });
 }
-showHomeCoordinates();
 
 // user pins
 var popup = L.popup();
