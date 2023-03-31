@@ -73,7 +73,11 @@ function saveUserInfo() {
     currentUser.update({
         email: userEmail,
         name: userName,
-        address: [userAddress, userAddress2, userCity, userProvince, userPostal]
+        address: userAddress,
+        address2: userAddress2,
+        city: userCity,
+        province: userProvince,
+        postal: userPostal
         })
         .then(() => {
             console.log("Document successfully updated!");

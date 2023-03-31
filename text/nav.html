@@ -1,11 +1,15 @@
 <link rel="stylesheet" href="/styles/submission.css">
+<link rel="stylesheet" href="/styles/logged_in.css">
 <script src="/scripts/submission.js"></script>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-success">
+
+<nav class="navbar navbar-dark" id="navbar" style="background-color: #34a853; border-bottom: 2px white;">
     <div class="container-fluid">
-        <a class="navbar-brand" href="../main.html">SlipSafe (logo)</a>
-        <a class="text-decoration-none text-white text-center bg-secondary rounded-circle"
-            style="width: 30px; height: 30px;" id="logged_in" href="../profile.html"></a>
+        <div>
+        <a class="navbar-brand" href="../main.html"><img id="logo" src="../images/Green slipsafe logo.png" alt="slipsafe logo"></a>
+        </div>
+        <div>
+        <a class="text-decoration-none rounded-circle" id="logged_in" href="../profile.html"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown"
             aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -13,17 +17,15 @@
         <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
             <ul class="navbar-nav">
                 <li><a class="dropdown-item" href="../profile.html">Profile</a></li>
-                <li><a class="dropdown-item" href="#">Weather</a></li>
                 <li><a class="dropdown-item" href="#">Saved</a></li>
                 <li><a class="dropdown-item" href="#">Previous</a></li>
                 <li><a class="dropdown-item" href="#">Nearby</a></li>
                 <!-- below is modified temporary as toggle for submitting report -->
-                <li><a class="dropdown-item" href="#" type="button" class="btn btn-primary" data-bs-toggle="modal"
-                        data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap" onclick="empty_all()">Report</a>
-                </li>
+                <li><a class="dropdown-item" href="#" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap" onclick="empty_all()">Report</a></li>
                 <!-- end of toggle -->
                 <li><a class="dropdown-item" href="#">Log Out</a></li>
             </ul>
+        </div>
         </div>
     </div>
 </nav>

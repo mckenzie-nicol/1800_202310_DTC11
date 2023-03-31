@@ -1,19 +1,35 @@
-<footer class="navbar justify-content-evenly bg-success fixed-bottom" style="width: 100%;">
-    <nav class="navbar bg-success" id="searchfooter">
-        <form class="container-fluid">
-            <div class="input-group">
-                <span class="btn btn- btn-sm bg-white" href="#" id="basic-addon1">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-search" viewBox="0 0 16 16">
-                        <path
-                            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-                    </svg>
-                </span>
-                <input type="text" class="form-control" placeholder="Search" aria-label="Search"
-                    aria-describedby="basic-addon1">
-                </div>
-            </form>
-        </nav>
-        <button id="add_report" style="position: absolute; bottom: 10px; right: 10px; z-index: 1000;"> Report</button>
-</footer>
+<link rel="stylesheet" href="../styles/logged_in.css">
 
+
+<nav class="navbar" id="searchfooter">
+    <form class="d-flex navbar justify-content-between container-fluid fixed-bottom" style="padding-bottom: 25px;">
+        <div>
+            <button id="locate_home" type="button" class="popupbtn btn btn-light"><img
+                    src="../images/—Pngtree—house location icon_4985554.png" alt=""
+                    style="height:100%; filter: invert(100%) hue-rotate(120deg);"></button>
+        </div>
+        <div>
+            <button id="locate_me" type="button" class="popupbtn btn btn-light"><img
+                    src="../images/—Pngtree—people location pin icon_5047014.png" alt=""
+                    style="height:100%; filter: invert(100%) hue-rotate(120deg);"></button>
+        </div>
+        <div id="search_bar" class="input-group d-none d-md-inline-block" style="width: fit-content;">
+            <span class="btn btn- btn-sm bg-white" href="#" id="basic-addon1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search"
+                    viewBox="0 0 20 20">
+                    <path
+                        d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                </svg>
+                <input style="display: inline-block; width: 200px; height: 32px;" type="text" class="form-control"
+                placeholder="Search" aria-label="Search" aria-describedby="basic-addon1">
+            </span>
+        </div>
+
+        <div>
+            <button id="set_home" type="button" class="popupbtn btn btn-light">Set <br> Home</button>
+        </div>
+        <div>
+            <button id="add_report" type="button" class="popupbtn btn btn-light">Report <br> Hazard</button>
+        </div>
+    </form>
+</nav>
