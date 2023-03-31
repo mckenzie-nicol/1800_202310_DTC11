@@ -123,4 +123,16 @@ function onMapClick(e) {
         showHomeCoordinates();
     });
 }
+
+// go to user location button function
+$("#locate_me").click(function () {
+    console.log("locate user button clicked");
+});
+// go to home location button function
+$("#locate_home").click(function () {
+    console.log("locate home button clicked");
+    showHomeCoordinates();
+});
+
+
 map.on('click', onMapClick);
