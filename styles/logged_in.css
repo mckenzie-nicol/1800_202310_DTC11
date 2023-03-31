@@ -14,12 +14,12 @@
 #footer {
     background-color: #34a853;
     border-bottom: 2px white;
-    height: 68px;
 }
 
 #footer {
     position: fixed;
     justify-content: center;
+    height: 68px;
 
 }
 
