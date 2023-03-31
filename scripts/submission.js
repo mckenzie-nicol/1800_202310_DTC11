@@ -7,21 +7,24 @@ $("#submitbtn").click(function () {
             var user = firebase.auth().currentUser;
             console.log(user.uid)
             var userID = user.uid;
-            db.collection("reports").add({
-                user_id: userID,
-                report_lat: "",
-                report_lng: "",
-                text_description: Text_description,
-                timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-            }).then(doc => {
-                console.log("Report document added!");
-                console.log(doc.id);
-                saveReportIDforUser(doc.id, userID);
-                if (ImageFile != null) {
-                    uploadPic(doc.id)
-                }
-            })
-
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    db.collection("reports").add({
+                        user_id: userID,
+                        report_lat: position.coords.latitude,
+                        report_lng: position.coords.longitude,
+                        text_description: Text_description,
+                        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+                    }).then(doc => {
+                        console.log("Report document added!");
+                        console.log(doc.id);
+                        saveReportIDforUser(doc.id, userID);
+                        if (ImageFile != null) {
+                            uploadPic(doc.id)
+                        }
+                    })
+                })
+            }
         }
         else {
             console.log("No user is signed in");
