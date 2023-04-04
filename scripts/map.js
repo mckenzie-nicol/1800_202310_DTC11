@@ -110,6 +110,7 @@ function showHomeCoordinates() {
 
                     var home = L.marker([user_home_lat, user_home_lng], { icon: homeIcon }).addTo(map);
                     home.bindPopup("Home!").openPopup();
+                    showUserLocation();
                     resolve();
                 });
             } else {
@@ -118,7 +119,7 @@ function showHomeCoordinates() {
         });
     });
 }
-// showHomeCoordinates();
+showHomeCoordinates();
 
 // user pins
 var popup = L.popup();
