@@ -136,7 +136,7 @@ function onMapClick(e) {
     var x = e.latlng["lat"];
     var y = e.latlng["lng"];
     // set home coordinates to user pin
-    $("#home").click(function () {
+    $("#set_home").click(function () {
         console.log("button clicked");
         console.log(x);
         console.log(y);
@@ -174,13 +174,6 @@ function showUserHome() {
     });
 }
 // go to user location button function
-$("#locate_me").click(function () {
-    showUserLocation();
-});
-// go to home location button function
-$("#locate_home").click(function () {
-    showUserHome();
-});
 
 
 map.on('click', onMapClick);
