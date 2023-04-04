@@ -22,6 +22,7 @@ $("#submitbtn").click(function () {
                         if (ImageFile != null) {
                             uploadPic(doc.id)
                         }
+                        alert("Report submitted! Thank you for letting us know the sidewalk conditions.");
                     })
                 })
             }

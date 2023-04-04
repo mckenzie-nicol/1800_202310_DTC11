@@ -1,6 +1,7 @@
 <link rel="stylesheet" href="../styles/logged_in.css">
-<!-- import map.js-->
-<script src="./scripts/map.js"></script>
+<script src="../scripts/map.js"></script>
+<script src="/scripts/submission.js"></script>
+<link rel="stylesheet" href="/styles/submission.css">
 
 
 
@@ -32,8 +33,47 @@
             <button id="set_home" type="button" class="popupbtn btn btn-light">Set <br> Home</button>
         </div>
         <div>
-            <button id="add_report" type="button" class="popupbtn btn btn-light">Report <br> Hazard</button>
+            <button id="add_report" type="button" class="btn btn-primary" data-bs-toggle="modal"
+            data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap"  onclick="empty_all()">Report <br> Hazard</button>
         </div>
     </form>
 </nav>
 <script src="./scripts/footer.js"></script>
+
+<!-- Below is modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered center-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="title-centered">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Are you reporting a safe sidewalk or a
+                        harzad?
+                    </h1>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="image-container">
+                    <img id="frame" src="" class="img-fluid" />
+                </div>
+                <form>
+                    <div class="mb-3">
+                        <label for="formFile" class="form-label">Upload picture of hazard.</label>
+                        <input class="form-control" type="file" id="formFile" onchange="preview()"
+                            onclick="clearImage()">
+                    </div>
+                    <div class="mb-3">
+                        <label for="message-text" class="col-form-label">Text Description</label>
+                        <textarea class="form-control" id="text_input"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="submissionbtn btn btn-secondary btn-lg" data-bs-dismiss="modal"
+                    data-bs-dismiss="modal" onclick="empty_all()">Cancel</button>
+                <button type="button" class="submissionbtn btn btn-primary btn-lg" data-bs-dismiss="modal"
+                    id="submitbtn">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Above is modal -->
