@@ -1,21 +1,49 @@
-var map = L.map('map').setView([51.505, -0.09], 16);
+function initialize_map() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function (position) {
+            map.panTo([position.coords.latitude, position.coords.longitude]);
+            return [position.coords.latitude, position.coords.longitude]
+        });
+    } else {
+        console.log("Geolocation is not supported by this browser.");
+    }
+}
+var initial_location = initialize_map()
+console.log(location)
+var current_x = initial_location
+console.log(current_x)
+var current_y = initial_location
+console.log(current_y)
+var map = L.map('map').setView([0, 0], 16);
+
+async function populate_map() {
+    // await showMapWarnings();
+    // await showHomeCoordinates();
+    mapLocateUser();
+}
+populate_map();
+
 
 // locate user functions
-function onLocationFound(e) {
-    var radius = e.accuracy / 10;
-    console.log(e.latlng);
-    L.marker(e.latlng).addTo(map)
-        .bindPopup("You are within " + radius + " meters from this point").openPopup();
-    L.circle(e.latlng, radius).addTo(map);
-}
-function onLocationError(e) {
-    alert(e.message);
-}
+function mapLocateUser() {
+    function onLocationFound(e) {
+        var radius = e.accuracy / 10;
+        console.log(e.latlng);
+        // x = e.latlng.lat;
+        // y = e.latlng.lng;
+        L.marker(e.latlng).addTo(map)
+            .bindPopup("You are within " + radius + " meters from this point").openPopup();
+        L.circle(e.latlng, radius).addTo(map);
+    }
+    function onLocationError(e) {
+        alert(e.message);
+    }
 
-map.on('locationfound', onLocationFound);
-map.on('locationerror', onLocationError);
+    map.on('locationfound', onLocationFound);
+    map.on('locationerror', onLocationError);
 
-map.locate({ setView: true, maxZoom: 16})
+    map.locate({ setView: true, maxZoom: 16 })
+}
 // leaflet map
 // use setView to center on current user location
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -58,40 +86,39 @@ function showMapWarnings() {
 showMapWarnings();
 // home location marker function
 function showHomeCoordinates() {
-    firebase.auth().onAuthStateChanged(user => {
-        if (user) {
-            var user = firebase.auth().currentUser;
-            db.collection("users").doc(user.uid).get().then(function (doc) {
-                // console.log(doc.data().home_lat);
-                // console.log(doc.data().home_lng);
-                user_home_lat = doc.data().home_lat
-                var homeIcon = L.divIcon({
-                    // reference html file for icon image
-                    html:
-                        '<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class= "bi bi-house-door-fill" viewBox="0 0 16 16" ><path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5Z" />' +
-                        '</svg >'
-                    ,
-                    className: 'bi bi-house-door-fill',
-                    iconUrl: 'text/map_warning.html',
-                    // iconUrl: '.text/map_warning.html',
-                    shadowUrl: './images/drink1.png',
+    return new Promise((resolve) => {
+        firebase.auth().onAuthStateChanged(user => {
+            if (user) {
+                var user = firebase.auth().currentUser;
+                db.collection("users").doc(user.uid).get().then(function (doc) {
+                    user_home_lat = doc.data().home_lat;
+                    user_home_lng = doc.data().home_lng;
 
-                    iconSize: [38, 95], // size of the icon
-                    shadowSize: [50, 64], // size of the shadow
-                    iconAnchor: [23.5, 25], // point of the icon which will correspond to marker's location
-                    shadowAnchor: [4, 62],  // the same for the shadow
-                    popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
+                    var homeIcon = L.divIcon({
+                        html:
+                            '<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class= "bi bi-house-door-fill" viewBox="0 0 16 16" ><path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5Z" />' +
+                            '</svg >',
+                        className: 'bi bi-house-door-fill',
+                        iconUrl: 'text/map_warning.html',
+                        shadowUrl: './images/drink1.png',
+                        iconSize: [38, 95],
+                        shadowSize: [50, 64],
+                        iconAnchor: [23.5, 25],
+                        shadowAnchor: [4, 62],
+                        popupAnchor: [-3, -76]
+                    });
+
+                    var home = L.marker([user_home_lat, user_home_lng], { icon: homeIcon }).addTo(map);
+                    home.bindPopup("Home!").openPopup();
+                    resolve();
                 });
-                user_home_lng = doc.data().home_lng
-                // map.removeLayer();
-
-                var home = L.marker([user_home_lat, user_home_lng], { icon: homeIcon }).addTo(map);
-                home.bindPopup("Home!").openPopup();
-            });
-        }
+            } else {
+                resolve();
+            }
+        });
     });
 }
-showHomeCoordinates();
+// showHomeCoordinates();
 
 // user pins
 var popup = L.popup();
@@ -100,7 +127,7 @@ function onMapClick(e) {
     var user = firebase.auth().currentUser;
     popup
         .setLatLng(e.latlng)
-        .setContent("https://cdn.iconscout.com/icon/free/png-256/pin-locate-marker-location-navigation-16-28668.png" + "You clicked the map at " + e.latlng.toString())
+        .setContent("You clicked the map at " + e.latlng.toString())
         .openOn(map);
     console.log(e.latlng);
     console.log(e.latlng["lat"]);
@@ -123,15 +150,35 @@ function onMapClick(e) {
         showHomeCoordinates();
     });
 }
-
+// function to pan to user current location
+function showUserLocation() {
+    console.log("locate user button clicked");
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function (position) {
+            map.panTo([position.coords.latitude, position.coords.longitude]);
+        });
+    } else {
+        console.log("Geolocation is not supported by this browser.");
+    }
+}
+function showUserHome() {
+    console.log("locate home button clicked");
+    firebase.auth().onAuthStateChanged(user => {
+        if (user) {
+            var user = firebase.auth().currentUser;
+            db.collection("users").doc(user.uid).get().then(function (doc) {
+                map.panTo([doc.data().home_lat, doc.data().home_lng]);
+            });
+        }
+    });
+}
 // go to user location button function
 $("#locate_me").click(function () {
-    console.log("locate user button clicked");
+    showUserLocation();
 });
 // go to home location button function
 $("#locate_home").click(function () {
-    console.log("locate home button clicked");
-    showHomeCoordinates();
+    showUserHome();
 });
 
 
