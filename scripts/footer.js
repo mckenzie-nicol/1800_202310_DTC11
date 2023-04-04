@@ -4,6 +4,3 @@ $("#locate_me").click(function () {
 $("#locate_home").click(function () {
     showUserHome();
 });
-// $("#set_home").click(function () {
-//     showUserHome();
-// });
