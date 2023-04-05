@@ -11,7 +11,7 @@
 }
 
 #navbar,
-#footer {
+#searchfooter, footer {
     background-color: #34a853;
     border-bottom: 2px white;
 }
