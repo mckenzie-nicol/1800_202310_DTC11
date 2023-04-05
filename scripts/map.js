@@ -45,7 +45,6 @@ function mapLocateUser() {
     map.locate({ setView: true, maxZoom: 16 })
 }
 // leaflet map
-// use setView to center on current user location
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
@@ -61,6 +60,8 @@ function showMapWarnings() {
                 var warning_lat = doc.data().report_lat
                 var warning_lng = doc.data().report_lng
                 var warning_image = doc.data().image
+                var warning_description = doc.data().text_description
+                console.log(warning_description)
                 var warningIcon = L.divIcon({
                     html:
                         '<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-exclamation-triangle-fill" viewBox="0 0 16 16"> <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />' +
@@ -76,7 +77,7 @@ function showMapWarnings() {
                     popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
                 });
                 var popup = L.popup()
-                    .setContent('<img src="' + warning_image + '" width="200" height="200">')
+                    .setContent('<img src="' + warning_image + '" width="200" height="200"> <br> <p>' + warning_description + '</p>')
                 var warning = L.marker([warning_lat, warning_lng], { icon: warningIcon }).addTo(map);
                 warning.bindPopup(popup).openPopup();
             });
