@@ -74,7 +74,7 @@ function showMapWarnings() {
                     shadowSize: [50, 64], // size of the shadow
                     iconAnchor: [25, 25], // point of the icon which will correspond to marker's location
                     shadowAnchor: [4, 62],  // the same for the shadow
-                    popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
+                    popupAnchor: [0, -22.5] // point from which the popup should open relative to the iconAnchor
                 });
                 var popup = L.popup()
                     .setContent('<img src="' + warning_image + '" width="200" height="200"> <br> <p>' + warning_description + '</p>')
@@ -106,7 +106,7 @@ function showHomeCoordinates() {
                         shadowSize: [50, 64],
                         iconAnchor: [23.5, 25],
                         shadowAnchor: [4, 62],
-                        popupAnchor: [-3, -76]
+                        popupAnchor: [0, -20]
                     });
                     var home = L.marker([user_home_lat, user_home_lng], { icon: homeIcon }).addTo(map);
                     home.bindPopup("Home!").openPopup();
