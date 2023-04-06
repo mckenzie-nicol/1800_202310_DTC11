@@ -16,6 +16,8 @@ var current_y = initial_location
 console.log(current_y)
 var map = L.map('map').setView([0, 0], 16);
 
+
+// async map functions
 async function populate_map() {
     // await showMapWarnings();
     // await showHomeCoordinates();
@@ -29,8 +31,6 @@ function mapLocateUser() {
     function onLocationFound(e) {
         var radius = e.accuracy / 10;
         console.log(e.latlng);
-        // x = e.latlng.lat;
-        // y = e.latlng.lng;
         L.marker(e.latlng).addTo(map)
             .bindPopup("You are within " + radius + " meters from this point").openPopup();
         L.circle(e.latlng, radius).addTo(map);
@@ -70,11 +70,11 @@ function showMapWarnings() {
                     className: 'bi bi- exclamation - triangle - fill',
                     iconUrl: 'images/image.jpg',
                     shadowUrl: './images/image.jpg',
-                    iconSize: [38, 95], // size of the icon
-                    shadowSize: [50, 64], // size of the shadow
-                    iconAnchor: [25, 25], // point of the icon which will correspond to marker's location
-                    shadowAnchor: [4, 62],  // the same for the shadow
-                    popupAnchor: [0, -22.5] // point from which the popup should open relative to the iconAnchor
+                    iconSize: [38, 95],
+                    shadowSize: [50, 64],
+                    iconAnchor: [25, 25],
+                    shadowAnchor: [4, 62],  
+                    popupAnchor: [0, -22.5] 
                 });
                 var popup = L.popup()
                     .setContent('<img src="' + warning_image + '" width="200" height="200"> <br> <p>' + warning_description + '</p>')
@@ -110,7 +110,6 @@ function showHomeCoordinates() {
                     });
                     var home = L.marker([user_home_lat, user_home_lng], { icon: homeIcon }).addTo(map);
                     home.bindPopup("Home!").openPopup();
-                    // showUserLocation();
                     resolve();
                 });
             } else {
@@ -141,8 +140,6 @@ function onMapClick(e) {
         console.log("button clicked");
         console.log(x);
         console.log(y);
-        // add to database
-        // add entries to firebase user document
         // modify fields in firebase user document
         db.collection("users").doc(user.uid).update({
             home_lat: x,
