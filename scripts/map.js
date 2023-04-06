@@ -19,8 +19,6 @@ var map = L.map('map').setView([0, 0], 16);
 
 // async map functions
 async function populate_map() {
-    // await showMapWarnings();
-    // await showHomeCoordinates();
     mapLocateUser();
 }
 populate_map();
@@ -171,7 +169,6 @@ function showUserHome() {
         }
     });
 }
-// go to user location button function
 
 
 map.on('click', onMapClick);
