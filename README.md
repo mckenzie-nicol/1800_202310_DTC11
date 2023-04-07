@@ -1,4 +1,5 @@
 # Project Title
+SlipSafe
 
 ## 1. Project Description
 Our team, Team #11 is developing our product - SlipSafe, to help people who commute by walking to have an easier time during snowy weather by showing the users which paths or sidewalks have been cleared of snow or ice. 
