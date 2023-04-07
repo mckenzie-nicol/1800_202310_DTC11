@@ -1,14 +1,9 @@
 function populateUserInfo() {
     firebase.auth().onAuthStateChanged(user => {
-        // Check if user is signed in:
         if (user) {
-
-            //go to the correct user document by referencing to the user uid
             currentUser = db.collection("users").doc(user.uid)
-            //get the document for current user.
             currentUser.get()
                 .then(userDoc => {
-                    //get the data fields of the user
                     var userEmail = userDoc.data().email;
                     var userName = userDoc.data().name;
                     var userAddress = userDoc.data().address;
@@ -16,8 +11,6 @@ function populateUserInfo() {
                     var userCity = userDoc.data().city;
                     var userProvince = userDoc.data().province;
                     var userPostal = userDoc.data().postal;
-
-                    //if the data fields are not empty, then write them in to the form.\
                     if (userEmail != null) {
                         document.getElementById("emailInput").value = userEmail;
                     }
@@ -42,13 +35,10 @@ function populateUserInfo() {
                 })
 
         } else {
-            // No user is signed in.
             console.log("No user is signed in");
         }
     });
-}
-
-//call the function to run it 
+} 
 populateUserInfo();
 
 function editUserInfo() {
@@ -58,9 +48,6 @@ function editUserInfo() {
 
 function saveUserInfo() {
     console.log('inside');
-    //enter code here
-
-    //a)get user entered values
     var userEmail = document.getElementById("emailInput").value;
     var userName = document.getElementById("nameInput").value;
     var userAddress = document.getElementById("addressInput").value;
@@ -68,8 +55,6 @@ function saveUserInfo() {
     var userCity = document.getElementById("cityInput").value;
     var userProvince = document.getElementById("provinceInput").value;
     var userPostal = document.getElementById("postalInput").value;;    
-
-    //b)update the user document with the new values
     currentUser.update({
         email: userEmail,
         name: userName,
