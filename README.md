@@ -66,8 +66,7 @@ It has the following subfolders and files:
     /access.css                 # 
     /logged_in.css              # 
     /style.css                  # contains primary map css properties and styling for custom html map icons
-    /submission.css             # 
-    /submitted.css              # 
+    /submission.css             # contains report modal and the CSS properties for stying
 ├── text                   # Folder for called html elements
     /.gitignore                 # ignores specific elements from being pushed to git, including firebaseAPI_TEAMDTC11.js
     /access_location.html       # 
