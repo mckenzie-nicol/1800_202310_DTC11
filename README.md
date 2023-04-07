@@ -40,16 +40,43 @@ Content of the project folder:
  Top level of project folder: 
 ├── .gitignore               # Git ignore file
 ├── index.html               # landing HTML file, this is what users see when you come to url
-└── README.md
+├── profile.html               # profile page for users view info on current user
+├── main.html               # main paging containing map and other core functionality
+├── login.html               # page prompting user to login with account information, or create new profile
+└── README.md                # general info about the application
+
 
 It has the following subfolders and files:
-├── .git                     # Folder for git repo
-├── images                   # Folder for images
-    /blah.jpg                # Acknowledge source
-├── scripts                  # Folder for scripts
-    /blah.js                 # 
-├── styles                   # Folder for styles
-    /blah.css                # 
+├── .git                   # Folder for git repo
+├── images                      # Folder for images
+    /SlipSafe logo.png          # Main logo for app
+    /Green slipsafe logo.png    # Green version of logo
+    /hous_location_icon.png     # Logo for go to home button
+    /location_pin.png           # Logo for locate self button
+├── scripts                # Folder for scripts
+    /authentication.js          # checks for authenticated user sign in. If user is signed it returns true. If user is a new user, a new entry will be entered in firebase 'users' collection.
+    /firebaseAPI_TEAMDTC11.js   # Contains project firebase information, including firebase apiKey and project specififc firebase identifiers. Calls core firebase functionality. Blacklisted from git by .gitignore
+    /footer.js                  # calls functions from map.js on click of elements in footer_after_login.html
+    /logged_in.js               # display currently logged in user's 'name' field from firebase, else if no user is logged in display no users logged in
+    /maps.js                    # Core app functionality. Creates an interactive map element populated with information from user profile and report icons taken from the reports collection in firebase.
+    /profile.js                 # populate profile.html with user information from firebase
+    /skeleton.js                # populate main with html elements
+    /submission.js              # report functionality, writing to firebase reports collection
+├── styles                 # Folder for styles
+    /access.css                 # 
+    /logged_in.css              # 
+    /style.css                  # contains primary map css properties and styling for custom html map icons
+    /submission.css             # 
+    /submitted.css              # 
+├── text                   # Folder for called html elements
+    /.gitignore                 # ignores specific elements from being pushed to git, including firebaseAPI_TEAMDTC11.js
+    /access_location.html       # 
+    /acess_photos.html          # 
+    /footer_after_login.html    # 
+    /footer_before_login.html   # 
+    /map.html                   # main map element, populated by map.js. Called by skeleton.js
+    /nav.html                   # top navbar element with dropdown of options. Displays user profile. Called by skeleton.js
+    /resubmit_photo.html        # 
 
 
 
