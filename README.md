@@ -21,18 +21,30 @@ State what a user needs to do when they come to your project.  How do others sta
 Here are the steps ...
 * Users must sign in in order to use the app currently, the pages with main functionalty are not available otherwise.
 * Users browser must support geolocation data for self locate functionality
+* Once logged in, users are taken to the main map page.
+* From there they can locate themselves with the locate self button on the footer.
+* If the user has a home setup, they can press the home button to be taken to the user specified home.
+* Otherwise, the user can drop a pin on the map, press the set home button, and then that point will be referenced as their home 
+in the future.
+* The user can go to the profile page, and update their personal information.
+* If the user comes across a section of unsafe, icy, or snowy sidewalks, the user can generate a report for their current location.
+report fields include a photo upload and a text description.
+* Once the report is submitted, it will be populated on all the other users map. They would have the ability to click on the report popup, and view the image as well as the text description, giving them more information about the hazard.
 
 ## 5. Known Bugs and Limitations
 Here are some known bugs:
 * When we first launch the app, the screen will always pan to "HOME" icon instead of user's location.
 * Map scaling issues when we were using Leaflet's API
-* ...
+* Logout button only redirects the user to the login page, logout functionality not yet implemented.
+* If a very tall image has been chosen to upload, the popup modal becomes extremely long and the user is required to scroll.
 
 ## 6. Features for Future
 What we'd like to build in the future:
 * Weather bar at the top to show temperature and weather at user's location
 * Search feature that allows user's searches
 * Saved features to show user's previously submitted reports as well as location user has saved
+* Updating the users home location on the profile page would change the users home pin location on the map, providing 2 ways that
+ a user could update this information.
 	
 ## 7. Contents of Folder
 Content of the project folder:
