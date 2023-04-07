@@ -1,11 +1,9 @@
 # Project Title
 
 ## 1. Project Description
-State your app in a nutshell, or one-sentence pitch. Give some elaboration on what the core features are.  
-This browser based web application to ... 
+Our team, Team #11 is developing our product - SlipSafe, to help people who commute by walking to have an easier time during snowy weather by showing the users which paths or sidewalks have been cleared of snow or ice. 
 
 ## 2. Names of Contributors
-List team members and/or short bio's here... 
 * Hi my name is Mckenzie.
 * Hi my name is Alex, and I am not looking forward to the video
 * My name is Chun Ting Brian.
@@ -15,14 +13,13 @@ List technologies (with version numbers), API's, icons, fonts, images, media or 
 * HTML, CSS, JavaScript
 * Bootstrap 5.0 (Frontend library)
 * Firebase 8.0 (BAAS - Backend as a Service)
-* ...
+* Leaflet/Openstreets 1.9.3 (API, map functionality)
 
 ## 4. Complete setup/installion/usage
 State what a user needs to do when they come to your project.  How do others start using your code or application?
 Here are the steps ...
-* ...
-* ...
-* ...
+* Users must sign in in order to use the app currently, the pages with main functionalty are not available otherwise.
+* Users browser must support geolocation data for self locate functionality
 
 ## 5. Known Bugs and Limitations
 Here are some known bugs:
