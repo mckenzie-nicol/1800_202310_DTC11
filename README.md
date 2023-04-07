@@ -45,6 +45,12 @@ Content of the project folder:
 ├── main.html               # main paging containing map and other core functionality
 ├── login.html               # page prompting user to login with account information, or create new profile
 └── README.md                # general info about the application
+└── .firebaserc                # file for hosting on firestore
+└── firebase.json                # file for hosting on firestore
+└── firestore.indexes.json                # file for hosting on firestore
+└── firestore.rules                # file for hosting on firestore
+└── storage.rules                # file for hosting on firestore
+└── 404.rules                # error page for when requested file is not found
 
 
 It has the following subfolders and files:
